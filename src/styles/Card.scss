@@ -1,0 +1,99 @@
+.img-wrapper {
+
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.inner-img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s;
+}
+.content {
+  padding: 20px;
+  border-radius: 20px;
+  transition: background-color 0.3s, padding 0.3s;
+  color: #333333;
+
+  .card:hover & {
+    background: linear-gradient(359.74deg, #c1285d 10.64%, #9c2c4c 104.83%);
+    padding: 30px;
+    color: white;
+    transform: scale(1);
+    transform-origin: center;
+  }
+}
+
+.card:hover .inner-img {
+  transform: scale(1.1);
+
+}
+
+.card2:hover .content {
+  background: linear-gradient(90.27deg, #e2663a -2.26%, #eb9b1a 98.84%);
+}
+
+.card3:hover .content {
+  background: linear-gradient(90deg, #0d9a51 0%, #02804c 100%);
+}
+
+.card:hover .content h3,
+.card:hover .content p {
+  color: white !important;
+}
+
+
+@keyframes moveUpRight {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.move-up-right {
+  transition: transform 0.3s ease;
+}
+
+.hover-animation:hover ~ .move-up-right {
+  animation: moveUpRight 0.5s ease infinite;
+}
+
+
+
+// .content:hover {
+//   background: linear-gradient(359.74deg, #C1285D 10.64%, #9C2C4C 104.83%);
+//   padding: 30px;
+//   border-radius: 20px;
+// }
+
+// .content2:hover {
+//   background: linear-gradient(90.27deg, #E2663A -2.26%, #EB9B1A 98.84%);
+//   padding: 30px;
+//   border-radius: 20px;
+// }
+
+// .content3:hover {
+//   background: linear-gradient(90deg, #0D9A51 0%, #02804C 100%);;
+//   padding: 30px;
+//   border-radius: 20px;
+// }
+
+// .content:hover h3,
+// .content:hover p {
+//   color: white !important;
+// }
+
+
+
+
+
+
+
+
+
+

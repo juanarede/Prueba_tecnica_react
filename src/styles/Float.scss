@@ -1,0 +1,107 @@
+.classic-fab {
+    background-color: #0000;
+    border: none;
+    color: #fff;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    width: 56px;
+    height: 56px;
+    padding: 16px;
+    box-shadow: 0 3px 5px 1px rgba(51, 51, 51, 0.3);
+    cursor: pointer;
+  
+    &:focus {
+      outline: none;
+    }
+  }
+  
+  .quick-actions-wrapper {
+    position: fixed;
+    bottom: 85px;
+    right: 16px;
+  }
+  
+  .quick-actions-toggle {
+    appearance: none;
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    z-index: 9999;
+    transition: box-shadow .2s ease-in-out;
+    box-shadow: 0 3px 5px 1px rgba(51, 51, 51, 0.3);
+  
+    &:hover {
+      box-shadow: 0 3px 6px 2px rgba(51, 51, 51, 0.3);
+    }
+  
+    &:checked ~ .quick-actions-list {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0%);
+    }
+  }
+  
+  .quick-actions-button {
+    height: 56px;
+    width: 56px;
+    background-color: #4054b2;
+    border-radius: 50%;
+    color: #fff;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  
+    i {
+      font-size: 16px;
+      transform: rotate(0deg);
+      transition: all 0.4s;
+    }
+  }
+  
+  .quick-actions-list {
+    position: absolute;
+    bottom: -86px;
+    right: 80px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50%);
+    transition: all 0.3s ease-in-out;
+  
+    li {
+      width: 100%;
+      float: right;
+      list-style: none;
+      text-align: right;
+      margin-bottom: 5px;
+  
+      a {
+        padding: 8px 15px;
+        display: inline-block;
+        background: #000000;
+        color: #ffffff;
+        border-radius: 5px;
+        text-decoration: none;
+        overflow: hidden;
+        white-space: nowrap;
+        transition: all 0.4s;
+        box-shadow: 1px 3px 5px rgba(211, 224, 255, 0.5);
+  
+        &:hover {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  

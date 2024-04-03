@@ -1,0 +1,51 @@
+.menu-closed {
+  display: block;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.7s ease, height 0.5s ease;
+}
+
+.menu-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+
+  box-shadow: 0 2px 4px;
+  z-index: 50;
+ 
+
+  transition: max-height 0.5s ease, opacity 0.5s ease; 
+}
+
+.menu-open {
+  max-height: 600px; 
+  opacity: 1; 
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+
+
+$tablet: 768px;
+$mobile: 480px;
+
+.hidden-mobile {
+  @media (max-width: $tablet) {
+    display: none;
+  }
+}
+
+.hidden-tablet {
+  @media (min-width: $mobile) and (max-width: $tablet) {
+    display: none;
+  }
+}
+
+
+
+
+
+
+

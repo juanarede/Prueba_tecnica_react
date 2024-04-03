@@ -1,0 +1,66 @@
+$animationSpeed: 40s;
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-150px * 11)); } // Ajusta el número de slides multiplicando por el número total de slides
+}
+
+.slider {
+  height: 100px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  max-width: 1050px; // Cambia a max-width para que el carrusel sea responsive
+}
+
+.slide-track {
+  animation: scroll $animationSpeed linear infinite;
+  display: flex;
+}
+
+.slide {
+  height: 100px; // Ajusta la altura de cada slide
+  width: 100%; // Cambia el ancho de los slides a 100%
+  flex: 0 0 auto; // Asegura que los slides no se estiren
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+
+@media (min-width: 640px) {
+  .slide {
+    width: 50%; // Cambia el ancho a 50% para mostrar dos logos por fila en pantallas medianas
+  }
+  .logo-slide {
+    max-width: 15rem; // Ajusta el ancho máximo de los logos en dispositivos medianos
+  }
+}
+
+@media (min-width: 360px) {
+  .slide {
+    width: 33.33%; // Cambia el ancho a 33.33% para mostrar tres logos por fila en pantallas más pequeñas
+  }
+  .logo-slide {
+    max-width: 10rem; // Ajusta el ancho máximo de los logos en dispositivos más pequeños
+  }
+}
+
+@media (min-width: 768px) {
+  .slide {
+    width: 33.33%; // Cambia el ancho a 33.33% para mostrar tres logos por fila en pantallas más grandes
+  }
+  .logo-slide {
+    max-width: 5rem; // Ajusta el ancho máximo de los logos en dispositivos más grandes
+  }
+}
+
+@media (min-width: 1024px) {
+  .slide {
+    width: 25%; // Cambia el ancho a 25% para mostrar cuatro logos por fila en pantallas extra grandes
+  }
+}
+
+.logo-slide {
+  max-width: 100%; /* Asegura que la imagen se ajuste al contenedor */
+  height: auto;
+}
