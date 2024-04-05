@@ -37,7 +37,7 @@ export default function Blogs() {
       <div className="max-w-7xl mx-auto px-4">
         <div style={{ marginTop: "6rem" }}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {articles.map((article, index) => (
+            {articles?.map((article, index) => (
               <div key={index} className={`card relative bg-white overflow-hidden card${index + 1} md:col-span-2 lg:col-span-1`}>
                 <div className="img-wrapper relative">
                   {article.urlToImage ? (
