@@ -1,6 +1,5 @@
 import  { useState, useEffect } from 'react';
 import axios from 'axios';
-import config from '../../../config';
 
 interface Article {
   title: string;
@@ -11,9 +10,11 @@ interface Article {
 
 export default function Blogs() {
   const [articles, setArticles] = useState<Article[]>([]);
-
+  const NEWS_API_KEY = '97f81c421a594572b303d42764d6f3b9';
+  
   useEffect(() => {
-    const endpoint = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${config.NEWS_API_KEY}`;
+    
+    const endpoint = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${NEWS_API_KEY}`;
 
     axios.get(endpoint)
     .then(response => {
