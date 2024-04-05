@@ -1,4 +1,3 @@
-import React from 'react';
 import "../../styles/Float.scss";
 import Disability from '../../assets/img/disabled.png'
 

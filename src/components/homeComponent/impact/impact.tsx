@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Impact() {
 
-      const targetCounter1 = 2300;
+    const targetCounter1 = 2300;
     const targetCounter2 = 329;
     const targetCounter3 = 23;
 
@@ -15,8 +15,10 @@ export default function Impact() {
     const sectionRef = useRef(null);
 
 
-    const intersectionCallback = (entries) => {
-        entries.forEach(entry => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const intersectionCallback = (entries: any) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        entries.forEach((entry: { isIntersecting: any; }) => {
             if (entry.isIntersecting) {
                 setCounting(true); 
             } else {
