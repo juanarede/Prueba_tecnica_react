@@ -1,12 +1,23 @@
 import { useState, useRef, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Form() {
   const [showModal, setShowModal] = useState(false);
+  const [recaptchaError, setRecaptchaError] = useState(""); // Estado para almacenar el error del Recaptcha
+  const [recaptchaValue, setRecaptchaValue] = useState(""); // Estado para almacenar el valor del Recaptcha
   const form = useRef<HTMLFormElement>(null); // Especifica el tipo HTMLFormElement
 
   const sendEmail = (e: FormEvent) => { // Usa FormEvent
     e.preventDefault();
+
+    if (!recaptchaValue) {
+      setRecaptchaError("Por favor, marca el Recaptcha.");
+      return;
+    }
+
+    // Limpiar error si hay Recaptcha marcado
+    setRecaptchaError("");
 
     if (form.current) {
       emailjs
@@ -29,6 +40,13 @@ export default function Form() {
   const closeModal = () => {
     setShowModal(false);
   };
+
+  const handleRecaptchaChange = (value: string | null) => {
+    if (value) {
+      setRecaptchaValue(value);
+    }
+  };
+
   return (
     <>
       <section className="bg-gray-900 py-10 md:py-20">
@@ -44,6 +62,7 @@ export default function Form() {
                   name="nombre"
                   placeholder="Tu nombre"
                   className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500"
+                  required 
                 />
               </div>
               <div className="mb-4">
@@ -54,6 +73,7 @@ export default function Form() {
                   name="apellido"
                   placeholder="Tu apellido"
                   className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500"
+                  required 
                 />
               </div>
               <div className="mb-4">
@@ -64,6 +84,7 @@ export default function Form() {
                   name="email"
                   placeholder="Tu correo electrónico"
                   className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500"
+                  required 
                 />
               </div>
               <div className="mb-4">
@@ -74,6 +95,7 @@ export default function Form() {
                   name="profesion"
                   placeholder="Tu profesión"
                   className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500"
+                  required 
                 />
               </div>
               <div className="mb-4">
@@ -84,6 +106,7 @@ export default function Form() {
                   name="empresa"
                   placeholder="Tu empresa"
                   className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500"
+                  required 
                 />
               </div>
               <div className="mb-4">
@@ -94,11 +117,19 @@ export default function Form() {
                   name="pais"
                   placeholder="Tu país"
                   className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500"
+                  required 
                 />
               </div>
+              <div className="mb-4">
+                <ReCAPTCHA
+                  sitekey="6LeW17IpAAAAAK8Q2VgB_oUMaGCi7iYSw5i8GttW"
+                  onChange={handleRecaptchaChange}
+                  className="g-recaptcha"
+                />
+                {recaptchaError && <p className="text-red-500">{recaptchaError}</p>}
+              </div>
               <div className="flex justify-center">
-                <div className="g-recaptcha" data-sitekey="TU_SITE_KEY"></div>
-                <button type="submit" className="bg-pink-700 hover:bg-pink-800 text-white px-6 py-2 rounded-md">Enviar</button>
+                <button type="submit" className="bg-pink-700 hover:bg-pink-800 text-white px-6 py-2 rounded-md mt-4">Enviar</button>
               </div>
             </form>
           </div>
