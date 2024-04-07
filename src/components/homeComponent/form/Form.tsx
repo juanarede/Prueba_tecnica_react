@@ -4,11 +4,11 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Form() {
   const [showModal, setShowModal] = useState(false);
-  const [recaptchaError, setRecaptchaError] = useState(""); // Estado para almacenar el error del Recaptcha
-  const [recaptchaValue, setRecaptchaValue] = useState(""); // Estado para almacenar el valor del Recaptcha
-  const form = useRef<HTMLFormElement>(null); // Especifica el tipo HTMLFormElement
+  const [recaptchaError, setRecaptchaError] = useState(""); 
+  const [recaptchaValue, setRecaptchaValue] = useState(""); 
+  const form = useRef<HTMLFormElement>(null); 
 
-  const sendEmail = (e: FormEvent) => { // Usa FormEvent
+  const sendEmail = (e: FormEvent) => { 
     e.preventDefault();
 
     if (!recaptchaValue) {
@@ -16,7 +16,7 @@ export default function Form() {
       return;
     }
 
-    // Limpiar error si hay Recaptcha marcado
+  
     setRecaptchaError("");
 
     if (form.current) {
