@@ -41,7 +41,7 @@ export default function Blogs() {
                 <div className="text-wrapper p-4">
                   <h3 className="title mb-2" style={{ fontSize: "23px", color: '#333333', fontWeight: "900" }}>{article.title}</h3>
                   <p className="text" style={{ fontSize: "17px", color: '#333333' }}>{article.description}</p>
-                  {/* <a href={article.url} target="_blank" rel="noopener noreferrer" className="bg-pink-700 hover:bg-pink-800 text-white font-bold rounded-full py-2 px-4 mt-4 inline-block">LEER MÁS</a> */}
+                  <a href={article.url} target="_blank" rel="noopener noreferrer" className="bg-pink-700 hover:bg-pink-800 text-white font-bold rounded-full py-2 px-4 mt-4 inline-block">LEER MÁS</a>
                 </div>
               </div>
             ))}
