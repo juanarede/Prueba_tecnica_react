@@ -122,7 +122,7 @@ export default function Form() {
               </div>
               <div className="mb-4">
                 <ReCAPTCHA
-                  sitekey="6LeW17IpAAAAAK8Q2VgB_oUMaGCi7iYSw5i8GttW"
+                  sitekey="6LeW17IpAAAAAFgZ5y7Mv16ey0Q7cYr7w7WkJL5p"
                   onChange={handleRecaptchaChange}
                   className="g-recaptcha"
                 />
